@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Azure Storage Explorer
+GenericName=Azure storage management
+Comment=Manage Azure cloud storage resources from your desktop
+Icon=com.microsoft.AzureStorageExplorer
+TryExec=StorageExplorer
+Exec=StorageExplorer
+Terminal=false
+Categories=Utility;Development;FileTools;Database;FileTransfer;
+Keywords=Cloud;Online;
+StartupWMClass=StorageExplorer

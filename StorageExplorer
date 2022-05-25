@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+export PATH=$PATH:/app/extra/dotnet
+export DOTNET_ROOT=/app/extra/dotnet
+/app/extra/app/StorageExplorer

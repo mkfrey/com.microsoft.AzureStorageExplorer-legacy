@@ -1,0 +1,74 @@
+---
+app-id: com.microsoft.AzureStorageExplorer
+runtime: org.freedesktop.Platform
+runtime-version: "21.08"
+sdk: org.freedesktop.Sdk
+command: StorageExplorer
+separate-locales: false
+tags:
+  - proprietary
+finish-args:
+  - "--share=ipc"
+  - "--socket=x11"
+  - "--socket=pulseaudio"
+  - "--share=network"
+  - "--talk-name=org.freedesktop.secrets"
+  - "--talk-name=org.gnome.SessionManager"
+  - "--talk-name=com.canonical.AppMenu.Registrar"
+  - "--talk-name=com.canonical.AppMenu.Registrar.*"
+  - "--system-talk-name=org.freedesktop.login1"
+  - "--persist=.IdentityService"
+  - "--persist=ScriptedHost"
+cleanup:
+  - "/include"
+  - "/lib/pkgconfig"
+  - "/share/pkgconfig"
+  - "/share/aclocal"
+  - "/man"
+  - "/share/man"
+  - "/share/gtk-doc"
+  - "/share/doc"
+  - "*.la"
+  - "*.a"
+modules:
+  - shared-modules/libsecret/libsecret.json
+  - name: storage-explorer
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 com.microsoft.AzureStorageExplorer.appdata.xml /app/share/appdata/com.microsoft.AzureStorageExplorer.appdata.xml
+      - install -Dm644 storage-explorer_256.png /app/share/icons/hicolor/256x256/apps/com.microsoft.AzureStorageExplorer.png
+      - install -Dm644 com.microsoft.AzureStorageExplorer.desktop /app/share/applications/com.microsoft.AzureStorageExplorer.desktop
+      - install -D apply_extra -t /app/bin
+      - install -D StorageExplorer -t /app/bin
+    sources:
+      - type: script
+        dest-filename: apply_extra
+        commands:
+          - "mkdir dotnet"
+          - "tar xfz dotnet.tar.gz -C dotnet"
+          - "rm -f dotnet.tar.gz"
+          - "mkdir app"
+          - "tar xfz storage-explorer.tar.gz -C app"
+          - "rm -f storage-explorer.tar.gz"
+      - type: file
+        path: StorageExplorer
+      - type: file
+        path: com.microsoft.AzureStorageExplorer.desktop
+      - type: file
+        path: com.microsoft.AzureStorageExplorer.appdata.xml
+      - type: file
+        path: icons/storage-explorer_256.png
+      - type: extra-data
+        filename: storage-explorer.tar.gz
+        only-arches:
+          - x86_64
+        url: https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.24.1/Linux_StorageExplorer-linux-x64.tar.gz
+        sha256: 2983d4f8d4e83c97cd6a19e29690df13ef502feabc2bf41a20b7de5d3483f574
+        size: 129178683
+      - type: extra-data
+        filename: dotnet.tar.gz
+        only-arches:
+          - x86_64
+        url: https://download.visualstudio.microsoft.com/download/pr/0f50a1fa-5fba-4d48-ae5e-dfa009528c60/d188c4e048b701b01604553167c14c5f/aspnetcore-runtime-3.1.25-linux-x64.tar.gz
+        sha256: 9257e8a7db8192b94fe8e125e7cd568267185781261498afcb6b5ae0a7d88762
+        size: 38382566
