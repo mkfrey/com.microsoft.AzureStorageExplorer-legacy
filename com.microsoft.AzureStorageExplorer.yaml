@@ -1,7 +1,7 @@
 ---
 app-id: com.microsoft.AzureStorageExplorer
 runtime: org.freedesktop.Platform
-runtime-version: "21.08"
+runtime-version: "22.08"
 sdk: org.freedesktop.Sdk
 command: StorageExplorer
 separate-locales: false
@@ -62,13 +62,13 @@ modules:
         filename: storage-explorer.tar.gz
         only-arches:
           - x86_64
-        url: https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.24.2/Linux_StorageExplorer-linux-x64.tar.gz
-        sha256: 13c36def5065431cb5c305593d6962908793fa02d525333f9407b6aa1aa14b19
-        size: 128714509
+        url: https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.27.0/Linux_StorageExplorer-x64.tar.gz
+        sha256: c43c6880f7af486bb0413908a872b832be94c670a0c36a9943dfa17c4565e109
+        size: 145675449
       - type: extra-data
         filename: dotnet.tar.gz
         only-arches:
           - x86_64
-        url: https://download.visualstudio.microsoft.com/download/pr/0f50a1fa-5fba-4d48-ae5e-dfa009528c60/d188c4e048b701b01604553167c14c5f/aspnetcore-runtime-3.1.25-linux-x64.tar.gz
-        sha256: 9257e8a7db8192b94fe8e125e7cd568267185781261498afcb6b5ae0a7d88762
-        size: 38382566
+        url: https://download.visualstudio.microsoft.com/download/pr/0a17a9f6-7705-4b47-aead-c0b582cad317/158b62e5183281e416994d56ce81bc0c/aspnetcore-runtime-6.0.11-linux-x64.tar.gz
+        sha256: d499a4af84cc3f9947230392f10d5af5fda65a71e002554f2ea3cd4244538133
+        size: 39854062
