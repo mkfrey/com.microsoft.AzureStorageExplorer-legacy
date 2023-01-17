@@ -62,13 +62,13 @@ modules:
         filename: storage-explorer.tar.gz
         only-arches:
           - x86_64
-        url: https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.27.0/Linux_StorageExplorer-x64.tar.gz
-        sha256: c43c6880f7af486bb0413908a872b832be94c670a0c36a9943dfa17c4565e109
-        size: 145675449
+        url: https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.27.1/Linux_StorageExplorer-x64.tar.gz
+        sha256: 15880f19c48f3667bea259a43d21436b0b53a09963a03ab47aaf4f4ac4c041a1
+        size: 145049705
       - type: extra-data
         filename: dotnet.tar.gz
         only-arches:
           - x86_64
-        url: https://download.visualstudio.microsoft.com/download/pr/0a17a9f6-7705-4b47-aead-c0b582cad317/158b62e5183281e416994d56ce81bc0c/aspnetcore-runtime-6.0.11-linux-x64.tar.gz
-        sha256: d499a4af84cc3f9947230392f10d5af5fda65a71e002554f2ea3cd4244538133
-        size: 39854062
+        url: https://download.visualstudio.microsoft.com/download/pr/a2234b85-9050-4f90-9fc1-695a428167ee/8d5c3cf8f557e14c7c43965b7cef9c41/aspnetcore-runtime-6.0.13-linux-x64.tar.gz
+        sha256: 65fae434b8aeb03a3853e7d71ffaf763de2a05738bc606f04be2992eba8c26f3
+        size: 39844659
