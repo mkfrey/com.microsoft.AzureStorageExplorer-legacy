@@ -8,10 +8,12 @@ separate-locales: false
 tags:
   - proprietary
 finish-args:
+  - "--filesystem=home"
   - "--share=ipc"
   - "--socket=x11"
   - "--socket=pulseaudio"
   - "--share=network"
+  - "--device=dri"
   - "--talk-name=org.freedesktop.secrets"
   - "--talk-name=org.gnome.SessionManager"
   - "--talk-name=com.canonical.AppMenu.Registrar"
@@ -62,9 +64,9 @@ modules:
         filename: storage-explorer.tar.gz
         only-arches:
           - x86_64
-        url: https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.29.2/StorageExplorer-linux-x64.tar.gz
-        sha256: 1e05b8adfad150c493f363c641a04b1e39cd598da04e5ae283b62e7d50391a70
-        size: 150431494
+        url: https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.30.0/StorageExplorer-linux-x64.tar.gz
+        sha256: f66a1e320414ce12ed864525ca6764466a26acd8d9a829da647741016e095891
+        size: 150628679
       - type: extra-data
         filename: dotnet.tar.gz
         only-arches:
