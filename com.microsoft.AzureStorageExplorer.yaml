@@ -3,10 +3,17 @@ app-id: com.microsoft.AzureStorageExplorer
 runtime: org.freedesktop.Platform
 runtime-version: "23.08"
 sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.dotnet6
 command: StorageExplorer
 separate-locales: false
 tags:
   - proprietary
+build-options:
+  append-path: "/usr/lib/sdk/dotnet6/bin"
+  append-ld-library-path: "/usr/lib/sdk/dotnet6/lib"
+  env:
+    PKG_CONFIG_PATH: "/app/lib/pkgconfig:/app/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/sdk/dotnet6/lib/pkgconfig"
 finish-args:
   - "--filesystem=home"
   - "--share=ipc"
@@ -37,6 +44,7 @@ modules:
   - name: storage-explorer
     buildsystem: simple
     build-commands:
+      - install.sh
       - install -Dm644 com.microsoft.AzureStorageExplorer.appdata.xml /app/share/appdata/com.microsoft.AzureStorageExplorer.appdata.xml
       - install -Dm644 storage-explorer_256.png /app/share/icons/hicolor/256x256/apps/com.microsoft.AzureStorageExplorer.png
       - install -Dm644 com.microsoft.AzureStorageExplorer.desktop /app/share/applications/com.microsoft.AzureStorageExplorer.desktop
@@ -46,11 +54,8 @@ modules:
       - type: script
         dest-filename: apply_extra
         commands:
-          - "mkdir dotnet"
-          - "tar xfz dotnet.tar.gz -C dotnet"
-          - "rm -f dotnet.tar.gz"
-          - "mkdir app"
-          - "tar xfz storage-explorer.tar.gz -C app"
+          - "mkdir storageexplorer"
+          - "tar xfz storage-explorer.tar.gz -C storageexplorer"
           - "rm -f storage-explorer.tar.gz"
       - type: file
         path: StorageExplorer
@@ -75,10 +80,3 @@ modules:
           url-query: .assets[] | select (.name | contains("linux-x64")) | .browser_download_url
           dist: stable
           component: main
-      - type: extra-data
-        filename: dotnet.tar.gz
-        only-arches:
-          - x86_64
-        url: https://download.visualstudio.microsoft.com/download/pr/a2234b85-9050-4f90-9fc1-695a428167ee/8d5c3cf8f557e14c7c43965b7cef9c41/aspnetcore-runtime-6.0.13-linux-x64.tar.gz
-        sha256: 65fae434b8aeb03a3853e7d71ffaf763de2a05738bc606f04be2992eba8c26f3
-        size: 39844659
