@@ -1,5 +1,7 @@
 # Azure Storage Explorer Flatpak
 
+Note: This repository has moved to https://github.com/flathub/com.microsoft.AzureStorageExplorer
+
 ## Installation
 You'll need `flatpak-builder` to build the image.
 
